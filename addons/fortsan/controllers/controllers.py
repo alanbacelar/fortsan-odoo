@@ -4,6 +4,7 @@ import requests
 from urllib.parse import urlencode
 from geopy.geocoders import Nominatim
 from odoo.exceptions import ValidationError
+from datetime import date
 
 
 class RegistersPlaceApi(http.Controller):
@@ -176,28 +177,51 @@ class RegistersReceitaApi(http.Controller):
     def register_notify(self, **post):
         if post:
             # return werkzeug.utils.redirect("/web/#action=364&model=fortsan.menu&view_type=list&cids=&menu_id=288")
-            return werkzeug.utils.redirect("/web#action=164&menu_id=128")
+            # return werkzeug.utils.redirect("/web#action=164&menu_id=128")
+            return werkzeug.utils.redirect("/web#action=181&cids=1&menu_id=129&model=crm.lead&view_type=kanban")
 
         return http.request.render('fortsan.receita_view_web', {
             'receita_view_web': True
         })
 
     def registration(self, response):
-        admins = http.request.env['fortsan.receita']
+        print("================ AQUI ================\n")
+        print(http.request.env['crm.lead'])
+        admins = http.request.env['crm.lead']
         admins.sudo().create({
-            "CNPJ": response['cnpj'],
-            "nome": response['nome'],
-            "endereco": f"{response['logradouro']}, {response['numero']} - {response['complemento']} - {response['bairro']}",
-            "município": response['municipio'],
-            "uf": response['uf'],
-            "CEP": response['cep'],
-            "email": response['email'],
-            "telefone": response['telefone'],
+            "name": response['nome'],
+            "email_from": response['email'],
+            "email_normalized": response['email'],
+            "phone_sanitized": response['telefone'],
+            "phone": response['telefone'],
+            # "message_bounce": 0,
+            # "user_id": 11,
+            # "company_id": 1,
+            # "active": True,
+            # "type": "opportunity",
+            # "priority": 0,
+            # "team_id": 1,
+            # "stage_id": 1,
+            # "color": 0,
+            # "expected_revenue": 0.0,
+            # "prorated_revenue": 0.00,
+            # "recurring_revenue_monthly": 0.00,
+            # "recurring_revenue_monthly_prorated": 0.00,
+            # "date_open": date.today(),
+            # "day_open":  0,
+            # "day_close":  0,
+            # "date_last_stage_update": date.today(),
+            # "email_state":  "correct",
+            # "probability":  39.85,
+            # "automated_probability":  39.85,
+            # "create_uid":  11,
+            # "create_date": date.today(),
+            # "write_uid":  11,
+            # "write_date": date.today(),
         })
 
     @staticmethod
     def _busca(post):
-        cnpj1 = '08418947000129'
         apiResponse = requests.get(
             'https://www.receitaws.com.br/v1/cnpj/'+post['cnpj'])
         data = apiResponse.json()
