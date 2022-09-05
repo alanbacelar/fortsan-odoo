@@ -1,0 +1,115 @@
+<odoo>
+  <data>
+    <template id="place_view_web" name="Registe to notify">
+      <header>
+        <nav class="nav nav-color">
+          <a class="nav-link active add" href="/web#menu_id=129">Home</a>
+          <a class="nav-link add" href="/fortsan/fortsan/googleApi/">Place API</a>
+          <a class="nav-link add" href="/fortsan/receita/receitaApi/">Receita API</a>
+        </nav>
+        <div class="card">
+          <div class="card-body">
+            <h2>Google Place API</h2>
+          </div>
+        </div>
+      </header>
+      <main class="conteiner">
+        <section class="section-conteiner">
+          <form onsubmit="submitForm(event)" id="form" method="post" class="needs-validation form-alinh">
+            <div class="form-row">
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom02">Palavra chave</label>
+                <input type="text" class="form-control" id="palavchav" name="palavchav" placeholder="Ex: Farmácias" required="true" />
+                <div>
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom02">Distancia da busca</label>
+                <input type="number" class="form-control" id="disBusca" name="disBusca" placeholder="Distancia da busca" required="true" step="any" />
+                <div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="event">
+              <h3 id="btn-click-lat" class="btn-title">Pesquisa usando Latitude e Longitude
+                <img id="arrow-img" class="icon-arrow" src="/fortsan/static/src/img/next.png"></img>
+              </h3>
+            </div>
+            <div id="lat-lng" class="hiddem">
+              <div class="form-row ">
+                <div class="col-md-4 mb-3">
+                  <label for="validationCustom02">Latitude</label>
+                  <input type="number" class="form-control" id="latitude" name="latitude" placeholder="Latitude" step="any" />
+                  <div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label for="validationCustom02">Longitude</label>
+                  <input type="number" class="form-control" id="longitude" name="longitude" placeholder="Longitude" step="any" />
+                  <div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="event">
+              <h3 id="btn-click-cid-est" class="btn-title">Pesquisa usando Cidade e Estado
+                <img id="arrow-img-1" class="icon-arrow-x-1" src="/fortsan/static/src/img/next.png"></img>
+              </h3>
+            </div>
+            <div id="cid-est" class="view-1">
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="validationCustom02">Cidade</label>
+                  <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Ex: Fortaleza" step="any" />
+                  <div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationCustom02">Estado</label>
+                  <input type="text" class="form-control" id="estado" name="estado" placeholder="Ex: Ceará" step="any" />
+                  <div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <button class="btn btn-primary" type="submit" id="btnCreditos">Enviar</button>
+          </form>
+        </section>
+
+      </main>
+      <!-- The Modal -->
+      <div id="modal-Error" class="modal-error">
+
+        <!-- Modal content -->
+        <div class="modal-error-content">
+          <p class="text-modal">E necessário preencher um dos metodos de pesquisa para concluir sua busca!</p>
+          <span class="close">x</span>
+        </div>
+
+      </div>
+      <footer class="footer">
+        <div>
+          <img class="img" src="/fortsan/static/src/img/fortsanlogo.png"></img>
+          <p>Todos os Direitos reservados Fortsan ©</p>
+        </div>
+      </footer>
+      <script type="text/javascript" src="/fortsan/static/src/js/place.js"/>
+      <link rel="stylesheet" type="text/scss" href="/fortsan/static/src/scss/place.scss"/>
+      <link rel="stylesheet" type="text/css" href="/fortsan/static/src/scss/place.css"/>
+
+      <script type="text/javascript" src="/fortsan/static/src/bootstrap/js/bootstrap.js"/>
+      <script type="text/javascript" src="/fortsan/static/src/bootstrap/js/bootstrap.bundle.js"/>
+
+      <link rel="stylesheet" type="text/css" href="/fortsan/static/src/bootstrap/css/bootstrap.css"/>
+
+    </template>
+  </data>
+</odoo>

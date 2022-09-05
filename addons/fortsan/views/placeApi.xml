@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="place_model_tree" model="ir.ui.view">
+        <field name="name">fortsan.place.tree</field>
+        <field name="model">fortsan.place</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false">
+                <field name="name" />
+                <field name="business_status" />
+                <field name="types" />
+                <field name="vicinity" />
+                <field name="rating" />
+                <field name="user_ratings_total" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="place_search" model="ir.ui.view">
+        <field name="name">fortsan.place.search</field>
+        <field name="model">fortsan.place</field>
+        <field name="arch" type="xml">
+            <search string="Dados">
+                <field name="name"/>
+                <field name="business_status"/>
+                <field name="rating"/>
+                <field name="types"/>
+                <field name="user_ratings_total"/>
+                <field name="vicinity"/>
+                <separator/>
+                <group expand="1" string="Group By">
+                    <filter string="Nome" name="name" context="{'group_by':'name'}"/>
+                    <separator/>
+                </group>
+                <group expand="1" string="Group By">
+                    <filter string="Status do Negócio" name="business_status" context="{'group_by':'business_status'}"/>
+                    <separator/>
+                </group>
+                <group expand="1" string="Group By">
+                    <filter string="Nivel de Avalição" name="rating" context="{'group_by':'rating'}"/>
+                    <separator/>
+                </group>
+                <group expand="1" string="Group By">
+                    <filter string="Tipo de Negócio" name="types" context="{'group_by':'types'}"/>
+                    <separator/>
+                </group>
+                <group expand="1" string="Group By">
+                    <filter string="Total de Avaliação" name="user_ratings_total" context="{'group_by':'user_ratings_total'}"/>
+                    <separator/>
+                </group>
+                <group expand="1" string="Group By">
+                    <filter string="Localização" name="vicinity" context="{'group_by':'vicinity'}"/>
+                    <separator/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_place_api_id" model="ir.actions.act_window">
+        <field name="name">Place</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">fortsan.place</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Nenhum registro encontrado!
+                
+            </p>
+
+        </field>
+    </record>
+
+    <!-- <menuitem id="hospital_root" name="Buscador de lead" sequence="10"/> -->
+
+    <!-- <menuitem id="hospital_patient_root" name="Opção de busca" parent="hospital_root" sequence="10"/> -->
+
+    <menuitem id="place_api_id" name="Google Place API" parent="fortsan.menu_item_opcao" action="action_place_api_id" sequence="20"/>
+
+    <!-- <menuitem id="hospital_patient_rotas" name="Receita Federal API" parent="hospital_patient_root" action="patient_action_rotas" sequence="10"/> -->
+
+</odoo>

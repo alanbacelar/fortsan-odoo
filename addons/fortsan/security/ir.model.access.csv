@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fortsan_fortsan,fortsan.fortsan,model_fortsan_fortsan,,1,1,1,1
+access_fortsan_menu,fortsan.menu,model_fortsan_menu,,1,1,1,1
+access_fortsan_place,fortsan.place,model_fortsan_place,,1,1,1,1
+access_fortsan_receita,fortsan.receita,model_fortsan_receita,,1,1,1,1

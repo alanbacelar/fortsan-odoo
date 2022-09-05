@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="fortsan.list">
+            <field name="name">fortsan list</field>
+            <field name="model">fortsan.menu</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false">
+                </tree>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="fortsan.action_window">
+            <field name="res_model">fortsan.menu</field>
+            <field name="help" type="html">
+                <p style="  margin-top: -21.3rem !important;
+                            margin: 0 36rem 0 -62rem;
+                            width: 179rem !important;
+                            height: 67rem;
+                            background-image: url('/fortsan/static/src/img/fortsanbanner.png');">
+
+                    <div style="display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                align-content: space-between;
+                                margin-top: -60rem;
+                                color: white;">
+                        <h1 style="font-size: 6rem;">Fortsan do Brasil
+                        </h1>
+                        <span style="white-space: nowrap;
+                                    font-family: monospace;
+                                    font-size: 2rem;">INDÚSTRIA QUÍMICA E FARMACÊUTICA, PIONEIRA NO NORTE E NORDESTE</span>
+                    </div>
+                    <div style="margin-top:3rem;">
+                        <!-- Alterá o valor para url base -->
+                        <a href="/fortsan/fortsan/googleApi/" class="btn btn-light btn-lg" role="button">Fazer busca com Google place</a>
+                        <a href="/fortsan/receita/receitaApi/" class="btn btn-light btn-lg" role="button">Fazer busca com Receita federal</a>
+                    </div>
+
+                </p>
+
+            </field>
+        </record>
+
+
+        <!-- server action to the one above -->
+
+
+
+        <!-- Top menu item -->
+
+        <menuitem name="Fortsan" id="fortsan.menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Ver tabelas" id="fortsan.menu_item_opcao" parent="fortsan.menu_root"/>
+        <!-- <menuitem name="Menu 2" id="fortsan.menu_2" parent="fortsan.menu_root"/> -->
+
+        <!-- actions -->
+
+        <menuitem name="Inicial" id="fortsan.menu_item_main" parent="fortsan.menu_item_opcao" action="fortsan.action_window"/>
+        <!-- <menuitem name="Server to list" id="fortsan" parent="fortsan.menu_2" action="fortsan.action_server"/> -->
+
+    </data>
+</odoo>

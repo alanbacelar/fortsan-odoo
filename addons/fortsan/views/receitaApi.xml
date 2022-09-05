@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="receita_model_tree" model="ir.ui.view">
+        <field name="name">fortsan.receita.tree</field>
+        <field name="model">fortsan.receita</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false">
+                <field name="CNPJ" />
+                <field name="nome" />
+                <field name="endereco" />
+                <field name="município" />
+                <field name="uf" />
+                <field name="CEP" />
+                <field name="email" />
+                <field name="telefone" />                
+            </tree>
+        </field>
+    </record>
+    <record id="action_receita_api_id" model="ir.actions.act_window">
+        <field name="name">Receita</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">fortsan.receita</field>
+        <field name="view_mode">tree,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                create your first receita!
+                
+            </p>
+
+        </field>
+    </record>
+
+    <!-- <menuitem id="hospital_root" name="Buscador de lead" sequence="10"/> -->
+
+    <!-- <menuitem id="hospital_menu_root" name="Opção de busca" parent="hospital_root" sequence="10"/> -->
+
+    <menuitem id="receita_api_id" name="Receita API" parent="fortsan.menu_item_opcao" action="action_receita_api_id" sequence="30"/>
+
+    <!-- <menuitem id="hospital_menu_rotas" name="Receita Federal API" parent="hospital_menu_root" action="menu_action_rotas" sequence="10"/> -->
+
+</odoo>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="patient_tree" model="ir.ui.view">
+        <field name="name">hospital.patient.tree</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false">
+                <field name="name" />
+                <field name="age" />
+                <field name="outros" />
+                <field name="gender" />
+                <field name="note" />
+                <field name="dados" />
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="patient_action" model="ir.actions.act_window">
+        <field name="help" type="html">
+            <p style="margin-top: -14rem !important;">
+                <a href="/fortsan/fortsan/objects/" class="badge badge-primary">Primary</a>
+                <a href="/fortsan/fortsan/objects/" class="badge badge-secondary">Secondary</a>
+                <a href="/fortsan/fortsan/objects/" class="badge badge-success">Success</a>
+                <a href="/fortsan/fortsan/objects/" class="badge badge-danger">Danger</a>
+                <a href="/fortsan/fortsan/objects/" class="badge badge-warning">Warning</a>
+                <a href="/fortsan/fortsan/objects/" class="badge badge-info">Info</a>
+                <a href="/fortsan/fortsan/objects/" class="badge badge-light">Light</a>
+                <a href="/fortsan/fortsan/objects/" class="badge badge-dark">Dark</a>
+
+                <a href="/fortsan/fortsan/objects/" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
+                <a href="/fortsan/fortsan/objects/" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
+            </p>
+        </field>
+    </record>
+
+    <!-- <record id="patient_action_rotas" model="ir.actions.act_window">
+                <field name="name">Rotas</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">hospital.patient</field>
+                <field name="help" type="html">
+                    <p class="o_view_nocontent_smiling_face">
+                create your first patient!
+                
+                    </p>
+                    <p style="background-color:#015686;width:100%;">
+                        <a href="http://localhost:8069/fortsan/fortsan/objects/">Tô aqui mísera</a>
+
+                        <img src="/om_hospital/static/src/img/logo.png" width="500rem" />
+                    </p>
+                </field>
+            </record> -->
+
+    <menuitem id="menu_hospital_root" name="Fortsan Lead" sequence="10"/>
+
+    <menuitem id="menu_patient_root" name="Opção de busca" parent="menu_hospital_root" sequence="10"/>
+
+    <menuitem id="menu_patient" name="Menu Inicial" parent="menu_patient_root" action="patient_action" sequence="10"/>
+
+    <!-- <menuitem id="hospital_patient_rotas" name="Receita Federal API" parent="hospital_patient_root" action="patient_action_rotas" sequence="10"/> -->
+
+</odoo>

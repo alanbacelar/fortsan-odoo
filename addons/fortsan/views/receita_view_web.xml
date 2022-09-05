@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+
+    <template id="receita_view_web" name="Registe to notify">
+      <header>
+        <nav class="nav nav-color">
+          <a class="nav-link active add" href="/web#menu_id=129">Home</a>
+          <a class="nav-link add" href="/fortsan/fortsan/googleApi/">Place API</a>
+          <a class="nav-link add" href="/fortsan/receita/receitaApi/">Receita API</a>
+        </nav>
+        <div class="card">
+          <div class="card-body">
+            <h2>Receita API</h2>
+          </div>
+        </div>
+      </header>
+      <main class="conteiner">
+        <section class="section-conteiner">
+          <form onsubmit="submitForm(event)" id="form" method="post" class="needs-validation form-alinh">
+            <div class="form-row">
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom02">Informe o CNPJ</label>
+                <input type="number" class="form-control" id="cnpj" name="cnpj" placeholder="Ex: 12345678000199" required="true" step="any" />
+                <div>
+                </div>
+              </div>
+
+            </div>
+
+            <button class="btn btn-primary" type="submit" id="btnCreditos">Enviar</button>
+          </form>
+        </section>
+      </main>
+      <footer class="footer">
+        <div>
+          <img class="img" src="/fortsan/static/src/img/fortsanlogo.png"></img>
+          <p>Todos os Direitos reservados Fortsan ©</p>
+        </div>
+      </footer>
+      <script type="text/javascript" src="/fortsan/static/src/js/receita.js"/>
+      <link rel="stylesheet" type="text/scss" href="/fortsan/static/src/scss/place.scss"/>
+      <link rel="stylesheet" type="text/css" href="/fortsan/static/src/scss/place.css"/>
+
+      <script type="text/javascript" src="/fortsan/static/src/bootstrap/js/bootstrap.js"/>
+      <script type="text/javascript" src="/fortsan/static/src/bootstrap/js/bootstrap.bundle.js"/>
+
+      <link rel="stylesheet" type="text/css" href="/fortsan/static/src/bootstrap/css/bootstrap.css"/>
+
+    </template>
+  </data>
+</odoo>

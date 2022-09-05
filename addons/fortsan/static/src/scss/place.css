@@ -1,0 +1,184 @@
+html,
+* {
+    margin: 0;
+    padding: 0;
+    color: #000000b2;
+    letter-spacing: 0.02em;
+}
+
+.add {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.nav-color {
+    border-bottom: 1px solid #015686;
+    ;
+    background-color: #015686;
+    ;
+}
+
+.nav-link {
+    padding: 0.9rem 2rem !important;
+    background-color: transparent;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    background-color: #00000036;
+}
+
+.section-conteiner {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #007bff1f;
+}
+
+input:invalid+div::before {
+    color: red;
+    content: "(Campo obrigatório)";
+}
+
+/* input:valid {
+    border: 2px solid rgb(45, 219, 45) !important;
+    text-decoration: none;
+
+} */
+/* input:valid + div::before {
+    color:rgb(45, 219, 45);
+    content: "(ok!)";
+} */
+.hiddem {
+    display: none;
+}
+
+.view {
+    border-radius: 1px;
+}
+
+.hiddem-1 {
+    display: none;
+}
+
+.view-1 {
+    border-radius: 1px;
+}
+
+.btn-title {
+    background-color: #015686;
+    ;
+    padding: 0.2rem 0;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.btn-title:hover {
+    background-color: #024c77b9;
+    padding: 0.2rem 0;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.icon-arrow {
+    height: 3.5rem;
+    padding: 1rem;
+}
+
+.icon-arrow-x {
+    height: 3.5rem;
+    padding: 1rem;
+    transform: rotate(90deg);
+}
+
+.icon-arrow-1 {
+    height: 3.5rem;
+    padding: 1rem;
+}
+
+.icon-arrow-x-1 {
+    height: 3.5rem;
+    padding: 1rem;
+    transform: rotate(90deg);
+}
+
+.modal-error {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-error-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30rem !important;
+    height: 10rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.text-modal {
+    margin-top: 2rem;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #015686 !important;
+    border-color: #015686 !important;
+}
+
+.footer {
+    color: #fff !important;
+    background-color: #015686 !important;
+    display: flex;
+    bottom: 0%;
+    width: 100%;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img {
+    width: 5rem;
+    margin: 1rem;
+}
+
+.footer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer div p {
+    color: #fff !important;
+    font-size: 0.8rem;
+}
