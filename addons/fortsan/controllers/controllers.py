@@ -130,7 +130,7 @@ class RegistersPlaceApi(http.Controller):
         lat = ''
         lng = ''
 
-        api_key = "AIzaSyDJLfZFz4st-oV8uR8wKlKV3i9H1cR7PiE"
+        api_key = "AIzaSyClJ4cahzAlEDm75oKc6N2a1LxKkKr5uNg"
         if post['latitude'] == '' and post['longitude'] == '':
             geolocator = Nominatim(user_agent="test_app")
             location = geolocator.geocode(
@@ -153,8 +153,8 @@ class RegistersPlaceApi(http.Controller):
         places_url = f"{places_endpoint_2}?{params_2_encoded}"
         r2 = requests.get(places_url)
         data = r2.json()
-        
-        if data['error_message'] :
+
+        if "error_message" in data:
              raise ValidationError(data['error_message'])
        
         return data
