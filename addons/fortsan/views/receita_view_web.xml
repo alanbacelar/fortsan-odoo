@@ -21,9 +21,27 @@
 
               <div class="col-md-4 mb-3">
                 <label for="validationCustom02">Informe o CNPJ</label>
-                <input type="number" class="form-control" id="cnpj" name="cnpj" placeholder="Ex: 12345678000199" required="true" step="any" />
-                <div>
-                </div>
+                <input type="number" class="form-control" id="cnpj" name="cnpj" placeholder="Ex: 12345678000199" step="any" />
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom02">Informe o segmento</label>
+                <input type="text" class="form-control" id="segmento" name="segmento" placeholder="Ex: Tecnologia" step="any" />
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom02">Informe o CNAE</label>
+                <input type="number" class="form-control" id="cnae" name="cnae" placeholder="Ex: 6511101" step="any" />
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom02">Informe o cidade</label>
+                <input type="text" class="form-control" id="municipio" name="municipio" placeholder="Ex: Fortaleza" step="any" />
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom02">Informe o UF</label>
+                <input type="text" class="form-control" id="uf" name="uf" placeholder="Ex: CE" step="any" />
               </div>
 
             </div>

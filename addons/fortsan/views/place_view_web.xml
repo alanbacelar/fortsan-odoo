@@ -3,7 +3,7 @@
     <template id="place_view_web" name="Registe to notify">
       <header>
         <nav class="nav nav-color">
-          <a class="nav-link active add" href="/web#menu_id=129">Home</a>
+          <a class="nav-link active add" href="/web#menu_id=129">Home 1</a>
           <a class="nav-link add" href="/fortsan/fortsan/googleApi/">Place API</a>
           <a class="nav-link add" href="/fortsan/receita/receitaApi/">Receita API</a>
         </nav>

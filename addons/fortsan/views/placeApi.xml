@@ -11,6 +11,8 @@
                 <field name="vicinity" />
                 <field name="rating" />
                 <field name="user_ratings_total" />
+                <field name="formatted_phone_number" />
+                <field name="website" />
             </tree>
         </field>
     </record>
@@ -26,6 +28,8 @@
                 <field name="types"/>
                 <field name="user_ratings_total"/>
                 <field name="vicinity"/>
+                <field name="formatted_phone_number" />
+                <field name="website" />
                 <separator/>
                 <group expand="1" string="Group By">
                     <filter string="Nome" name="name" context="{'group_by':'name'}"/>
@@ -51,6 +55,14 @@
                     <filter string="Localização" name="vicinity" context="{'group_by':'vicinity'}"/>
                     <separator/>
                 </group>
+                 <group expand="1" string="Group By">
+                    <filter string="Telefone" name="formatted_phone_number" context="{'group_by':'formatted_phone_number'}"/>
+                    <separator/>
+                </group>
+                 <group expand="1" string="Group By">
+                    <filter string="Website" name="website" context="{'group_by':'website'}"/>
+                    <separator/>
+                </group>
             </search>
         </field>
     </record>
@@ -63,9 +75,7 @@
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Nenhum registro encontrado!
-                
             </p>
-
         </field>
     </record>
 

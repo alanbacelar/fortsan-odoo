@@ -5,7 +5,7 @@ from urllib.parse import urlencode
 from geopy.geocoders import Nominatim
 from odoo.exceptions import ValidationError
 from datetime import date
-
+import time
 
 class RegistersPlaceApi(http.Controller):
 
@@ -34,6 +34,7 @@ class RegistersPlaceApi(http.Controller):
                     'types': ', '.join(x['types']),
                     'user_ratings_total': x['user_ratings_total'],
                     'vicinity': x['vicinity'],
+                    'formatted_phone_number': x['formatted_phone_number'],
                 }
 
                 insert_record = http.request.env['fortsan.place'].sudo().create(
@@ -55,7 +56,7 @@ class RegistersPlaceApi(http.Controller):
             'place_view_web': True
         })
 
-    def registration(self, name, business_status, rating, types, user_ratings_total, vicinity):
+    def registration(self, name, business_status, rating, types, user_ratings_total, vicinity, formatted_phone_number):
         admins = http.request.env['fortsan.place']
         admins.sudo().create({
             'name': name,
@@ -64,6 +65,7 @@ class RegistersPlaceApi(http.Controller):
             'types': ', '.join(types),
             'user_ratings_total': user_ratings_total,
             'vicinity': vicinity,
+            'formatted_phone_number': formatted_phone_number
         })
 
     def filterData(self, value):
@@ -75,6 +77,7 @@ class RegistersPlaceApi(http.Controller):
                 x["types"],
                 x["user_ratings_total"],
                 x["vicinity"],
+                x["formatted_phone_number"],
             )
 
     # Atualizar os nome da lista de tipes
@@ -113,6 +116,7 @@ class RegistersPlaceApi(http.Controller):
                 'types': x['types'],
                 'user_ratings_total': x['user_ratings_total'],
                 'vicinity': x['vicinity'],
+                'formatted_phone_number': x['vicinity']
             }
             update_value.append(values)
         return update_value
@@ -164,18 +168,15 @@ class RegistersReceitaApi(http.Controller):
 
     @http.route('/fortsan/receita/', type='json', auth='public', website=True, cors='=', csrf=False)
     def receive_json(self, **post):
-        if post:
-            values = {
-                'cnpj': post['cnpj'],
-            }
-            print(values)
 
-        responseJson = self._busca(post)
-        self.registration(responseJson)
+        if post:
+            responseJson = self._busca(post)
+            self.registration(responseJson)
 
     @http.route('/fortsan/receita/receitaApi/', type='http', auth='public', website=True, csrf=False)
     def register_notify(self, **post):
         if post:
+            time.sleep(3)
             # return werkzeug.utils.redirect("/web/#action=364&model=fortsan.menu&view_type=list&cids=&menu_id=288")
             # return werkzeug.utils.redirect("/web#action=164&menu_id=128")
             return werkzeug.utils.redirect("/web#action=181&cids=1&menu_id=129&model=crm.lead&view_type=kanban")
@@ -185,44 +186,51 @@ class RegistersReceitaApi(http.Controller):
         })
 
     def registration(self, response):
-        print("================ AQUI ================\n")
-        print(http.request.env['crm.lead'])
         admins = http.request.env['crm.lead']
-        admins.sudo().create({
-            "name": response['nome'],
-            "email_from": response['email'],
-            "email_normalized": response['email'],
-            "phone_sanitized": response['telefone'],
-            "phone": response['telefone'],
-            # "message_bounce": 0,
-            # "user_id": 11,
-            # "company_id": 1,
-            # "active": True,
-            # "type": "opportunity",
-            # "priority": 0,
-            # "team_id": 1,
-            # "stage_id": 1,
-            # "color": 0,
-            # "expected_revenue": 0.0,
-            # "prorated_revenue": 0.00,
-            # "recurring_revenue_monthly": 0.00,
-            # "recurring_revenue_monthly_prorated": 0.00,
-            # "date_open": date.today(),
-            # "day_open":  0,
-            # "day_close":  0,
-            # "date_last_stage_update": date.today(),
-            # "email_state":  "correct",
-            # "probability":  39.85,
-            # "automated_probability":  39.85,
-            # "create_uid":  11,
-            # "create_date": date.today(),
-            # "write_uid":  11,
-            # "write_date": date.today(),
-        })
+
+        for item in response:
+            admins.sudo().create({
+                "name": item['nome_fantasia'] or item['razao_social'],
+                "email_from": item['correio_eletronico'],
+                "email_normalized": item['correio_eletronico'],
+                "phone_sanitized": item['ddd_telefone_1'] or item['ddd_telefone_2'],
+                "phone": item['ddd_telefone_1'] or item['ddd_telefone_2'],
+                # "message_bounce": 0,
+                # "user_id": 11,
+                # "company_id": 1,
+                # "active": True,
+                # "type": "opportunity",
+                # "priority": 0,
+                # "team_id": 1,
+                # "stage_id": 1,
+                # "color": 0,
+                # "expected_revenue": 0.0,
+                # "prorated_revenue": 0.00,
+                # "recurring_revenue_monthly": 0.00,
+                # "recurring_revenue_monthly_prorated": 0.00,
+                # "date_open": date.today(),
+                # "day_open":  0,
+                # "day_close":  0,
+                # "date_last_stage_update": date.today(),
+                # "email_state":  "correct",
+                # "probability":  39.85,
+                # "automated_probability":  39.85,
+                # "create_uid":  11,
+                # "create_date": date.today(),
+                # "write_uid":  11,
+                # "write_date": date.today(),
+            })
 
     @staticmethod
     def _busca(post):
-        apiResponse = requests.get(
-            'https://www.receitaws.com.br/v1/cnpj/'+post['cnpj'])
+        params = '&'.join(str(p + "=" + post[p]) for p in list(post.keys()) if post[p] != '')
+
+        url = f'http://localhost:4010/companies?{params}&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ5b3VmeS1sZWFkcyIsImlhdCI6MTY2OTAzMTk3NCwiZXhwIjozMjQ2OTExOTc0fQ.KqegFIyn0Fg8AeeiirY5A5bAwX37Pqet_hSWyEaOvz8&limit=100'
+
+        print("\n\n\n\n====== INIT PARAMS ======\n\n\n\n")
+        print(url)
+        print("\n\n\n\n====== FIM PARAMS ======\n\n\n\n")
+
+        apiResponse = requests.get(url)
         data = apiResponse.json()
         return data

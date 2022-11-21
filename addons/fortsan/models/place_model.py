@@ -15,4 +15,6 @@ class fortsanPlace(models.Model):
     types = fields.Char(string="Tipos de negócio")
     user_ratings_total = fields.Char(string="Total de avaliação")
     vicinity = fields.Char(string="Localização")
+    formatted_phone_number = fields.Char(string="Telefone")
+    website = fields.Char(string="Website")
     # place_id = fields.Char(string="")
