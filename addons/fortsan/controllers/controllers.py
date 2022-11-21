@@ -176,10 +176,9 @@ class RegistersReceitaApi(http.Controller):
     @http.route('/fortsan/receita/receitaApi/', type='http', auth='public', website=True, csrf=False)
     def register_notify(self, **post):
         if post:
-            time.sleep(3)
-            # return werkzeug.utils.redirect("/web/#action=364&model=fortsan.menu&view_type=list&cids=&menu_id=288")
+            return werkzeug.utils.redirect("/web#action=177&model=crm.lead&view_type=list&cids=1&menu_id=129")
             # return werkzeug.utils.redirect("/web#action=164&menu_id=128")
-            return werkzeug.utils.redirect("/web#action=181&cids=1&menu_id=129&model=crm.lead&view_type=kanban")
+            # return werkzeug.utils.redirect("/web#action=181&cids=1&menu_id=129&model=crm.lead&view_type=kanban")
 
         return http.request.render('fortsan.receita_view_web', {
             'receita_view_web': True
