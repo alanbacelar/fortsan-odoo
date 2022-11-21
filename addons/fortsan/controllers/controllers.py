@@ -225,7 +225,7 @@ class RegistersReceitaApi(http.Controller):
     def _busca(post):
         params = '&'.join(str(p + "=" + post[p]) for p in list(post.keys()) if post[p] != '')
 
-        url = f'https://api.youfy.com.br/leads/companies?{params}&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ5b3VmeS1sZWFkcyIsImlhdCI6MTY2OTAzMTk3NCwiZXhwIjozMjQ2OTExOTc0fQ.KqegFIyn0Fg8AeeiirY5A5bAwX37Pqet_hSWyEaOvz8&limit=100'
+        url = f'https://api.youfy.com.br/leads/companies?{params}&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ5b3VmeS1sZWFkcyIsImlhdCI6MTY2OTAzMTk3NCwiZXhwIjozMjQ2OTExOTc0fQ.KqegFIyn0Fg8AeeiirY5A5bAwX37Pqet_hSWyEaOvz8'
 
         print("\n\n\n\n====== INIT PARAMS ======\n\n\n\n")
         print(url)

@@ -44,6 +44,11 @@
                 <input type="text" class="form-control" id="uf" name="uf" placeholder="Ex: CE" step="any" />
               </div>
 
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom02">Quantidade</label>
+                <input type="number" class="form-control" id="limit" name="limit" value="100" required="true" step="any" />
+              </div>
+
             </div>
 
             <button class="btn btn-primary" type="submit" id="btnCreditos">Enviar</button>

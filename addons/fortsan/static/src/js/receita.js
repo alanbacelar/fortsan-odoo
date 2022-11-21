@@ -9,6 +9,7 @@ btn2.onsubmit = function (event) {
   var cnae = document.getElementById("cnae").value;
   var municipio = document.getElementById("municipio").value;
   var uf = document.getElementById("uf").value;
+  var limit = document.getElementById("limit").value || 100;
 
   var urls = "http://" + window.location.host + "/fortsan/receita/";
 
@@ -26,6 +27,7 @@ btn2.onsubmit = function (event) {
         cnae,
         municipio,
         uf,
+        limit,
       },
     }),
   })
