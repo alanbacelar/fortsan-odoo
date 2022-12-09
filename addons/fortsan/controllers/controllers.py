@@ -190,6 +190,7 @@ class RegistersReceitaApi(http.Controller):
         for item in response:
             admins.sudo().create({
                 "name": item['nome_fantasia'] or item['razao_social'],
+                "partner_name": item['razao_social'] or item['nome_fantasia'],
                 "email_from": item['correio_eletronico'],
                 "email_normalized": item['correio_eletronico'],
                 "phone_sanitized": item['ddd_telefone_1'] or item['ddd_telefone_2'],
