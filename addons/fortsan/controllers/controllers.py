@@ -198,7 +198,7 @@ class RegistersReceitaApi(http.Controller):
                 "street2": item['complemento'],
                 "zip": item['cep'],
                 "city": item['municipio'],
-                "state_id": item['uf'],
+                # "state_id": item['uf'],
                 # "message_bounce": 0,
                 # "user_id": 11,
                 # "company_id": 1,
